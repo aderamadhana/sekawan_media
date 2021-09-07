@@ -16,8 +16,8 @@ Role - Pegawai
 Username : pegawai
 Password : pegawai
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
+Username : pegawai
+Password : pegawai
 <https://codeigniter.com/download>`_ page.
 
 **************************
