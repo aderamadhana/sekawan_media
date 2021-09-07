@@ -44,6 +44,8 @@ class Login extends CI_Controller {
 		$this->session->set_userdata($data_session);
 
 		if($dataLogin != null){
+			logging("Login", "Login", "");
+
 			$this->session->set_flashdata('messages', '<br><div class="alert alert-success" role="alert"> Berhasil Login </div>');
 			if($role == 1){
 				redirect('Dashboard/admin');
@@ -52,6 +54,7 @@ class Login extends CI_Controller {
 			}else if($role == 3){
 				redirect('Dashboard/pegawai');
 			}
+
 		}else{
 			$this->session->set_flashdata('messages', '<br><div class="alert alert-danger" role="alert"> Username/ Password Salah! </div>');
 			redirect('Login');

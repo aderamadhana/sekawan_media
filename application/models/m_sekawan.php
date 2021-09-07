@@ -93,4 +93,10 @@ class m_sekawan extends CI_Model {
 		$this->db->like('tanggal_pemesanan', $bulan);
 		return $this->db->get();
 	}
+
+	public function save_log($param){
+        $sql        = $this->db->insert_string('log_aktivitas',$param);
+        $ex         = $this->db->query($sql);
+        return $this->db->affected_rows($sql);
+    }
 }

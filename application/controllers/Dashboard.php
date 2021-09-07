@@ -17,6 +17,7 @@ class Dashboard extends CI_Controller {
     public function admin(){
         $data['content']    = 'dashboard/v_dashboard_admin';
         $data['title']      = 'Dashboard';
+        $data['kendaraan']  = $this->m_sekawan->getAll('view_pemakaian_kendaraan')->result();
 
         $this->load->view('template/template', $data);
     }
@@ -24,6 +25,7 @@ class Dashboard extends CI_Controller {
     public function pihak_setuju(){
         $data['content']    = 'dashboard/v_dashboard_pihak_setuju';
         $data['title']      = 'Dashboard';
+        $data['kendaraan']  = $this->m_sekawan->getAll('view_pemakaian_kendaraan')->result();
 
         $this->load->view('template/template', $data);
     }

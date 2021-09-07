@@ -34,6 +34,7 @@ class Driver extends CI_Controller {
 
         $this->m_sekawan->insert('driver', $data);
 
+        logging("Driver", "Insert", $this->input->post('nama_driver'));
 		$this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil tambah driver.	</div>');
 
 		redirect('Driver');
@@ -56,6 +57,8 @@ class Driver extends CI_Controller {
         $this->m_sekawan->update('driver', $data, $condition);
 
         if($this->db->affected_rows() >= 0){
+            
+            logging("Driver", "Update", $this->input->post('nama_driver'));
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil update driver.	</div>');
 
             redirect('Driver');
@@ -71,6 +74,7 @@ class Driver extends CI_Controller {
 
         $this->m_sekawan->delete('driver', $condition);
 
+        logging("Driver", "Delete", $id_driver);
         if($this->db->affected_rows() >= 0){
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil hapus driver.	</div>');
 

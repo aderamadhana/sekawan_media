@@ -34,6 +34,7 @@ class Kendaraan extends CI_Controller {
 
         $this->m_sekawan->insert('kendaraan', $data);
 
+        logging("Kendaraan", "Insert", $this->input->post('nama_kendaraan'));
 		$this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil tambah kendaraan.	</div>');
 
 		redirect('Kendaraan');
@@ -56,6 +57,7 @@ class Kendaraan extends CI_Controller {
         $this->m_sekawan->update('kendaraan', $data, $condition);
 
         if($this->db->affected_rows() >= 0){
+            logging("Kendaraan", "Update", $this->input->post('nama_kendaraan'));
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil update kendaraan.	</div>');
 
             redirect('Kendaraan');
@@ -72,6 +74,7 @@ class Kendaraan extends CI_Controller {
         $this->m_sekawan->delete('kendaraan', $condition);
 
         if($this->db->affected_rows() >= 0){
+            logging("Kendaraan", "Delete", $id_Kendaraan);
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil hapus kendaraan.	</div>');
 
             redirect('Kendaraan');

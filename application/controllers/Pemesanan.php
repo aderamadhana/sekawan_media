@@ -52,6 +52,7 @@ class Pemesanan extends CI_Controller {
 
         $this->m_sekawan->insert('pemesanan', $data);
 
+        logging("Pemesanan", "Insert", $this->input->post('id_kendaraan'));
 		$this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil tambah pemesanan kendaraan.	</div>');
 
 		redirect('Pemesanan/pegawai');
@@ -75,6 +76,8 @@ class Pemesanan extends CI_Controller {
             $this->m_sekawan->update('pemesanan', $data, $condition);
 
             if($this->db->affected_rows() >= 0){
+                
+                logging("Pemesanan", "Konfirmasi Pemesanan (Admin)", $this->input->post('id_pemesanan'));
                 $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil konfirmasi pemesanan.	</div>');
     
                 redirect('Pemesanan/admin');
@@ -115,6 +118,8 @@ class Pemesanan extends CI_Controller {
         $this->m_sekawan->update('pemesanan', $data, $condition);
 
         if($this->db->affected_rows() >= 0){
+            
+            logging("Pemesanan", "Konfirmasi Pemesanan (Pihak Pertama)", $this->input->post('id_pemesanan'));
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil konfirmasi pemesanan.	</div>');
 
             redirect('Pemesanan/pihak_setuju');
@@ -135,6 +140,7 @@ class Pemesanan extends CI_Controller {
         $this->m_sekawan->update('kendaraan', array('status_kendaraan' => 0), $conditionKendaraan);
 
         if($this->db->affected_rows() >= 0){
+            logging("Pemesanan", "Konfirmasi Pemesanan (Pihak Kedua)", $this->input->post('id_pemesanan'));
             $this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil konfirmasi pemesanan.	</div>');
 
             redirect('Pemesanan/pihak_setuju');
@@ -151,5 +157,16 @@ class Pemesanan extends CI_Controller {
         $data['pemesanan']          = $this->m_sekawan->getPemesananById('pemesanan', array('id_pemesanan' => $id_pemesanan))->result();
         
         $this->load->view('template/template', $data);
+    }
+
+    public function doAddPemakaian(){
+        $data = $_POST;
+
+        $this->m_sekawan->insert('pakai_kendaraan', $data);
+
+        logging("Pakai Kendaraan", "Insert", $this->input->post('id_pemesanan'));
+		$this->session->set_flashdata('messages', '<div class="alert alert-success " role="alert"><strong>Sukses!</strong> Berhasil tambah pemakaian kendaraan.	</div>');
+
+		redirect('Pemesanan/pegawai');
     }
 }
