@@ -1,8 +1,8 @@
 *******************
 Daftar Username dan Password 
 *******************
-Role - Admin <br />
-Username : admin <br />
+Role - Admin  
+Username : admin  
 Password : admin <br />
 ----------------------- 
 Role - Pihak yang menyetujui pemesanan
