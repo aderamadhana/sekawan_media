@@ -6,6 +6,5 @@
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-        <?= print_r($arema); ?>
     </div>
 </div>
