@@ -1,9 +1,9 @@
 *******************
-Daftar Username dan Password
+Daftar Username dan Password 
 *******************
-Role - Admin
-Username : admin
-Password : admin
+Role - Admin <br />
+Username : admin <br />
+Password : admin <br />
 ----------------------- 
 Role - Pihak yang menyetujui pemesanan
 Username : trans
@@ -15,10 +15,6 @@ Password : transmedia
 Role - Pegawai
 Username : pegawai
 Password : pegawai
-
-Username : pegawai
-Password : pegawai
-<https://codeigniter.com/download>`_ page.
 
 **************************
 Changelog and New Features
